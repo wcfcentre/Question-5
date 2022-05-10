@@ -8,10 +8,17 @@ spec:
  rules:
  - http:
      paths:
-     - path: /hello/v1
+     - path: /v1/hello
        pathType: Prefix
        backend:
          service:
            name: hellotome
            port:
              number: 80
+      - path: /v1/tasks/task
+        pathType: Prefix
+        backend:
+          service:
+            name: rabbitproducer
+            port:
+              number: 80
